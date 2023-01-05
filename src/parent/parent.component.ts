@@ -5,6 +5,7 @@ import {
   OnInit,
   TemplateRef,
 } from '@angular/core';
+
 import { NgTestTmplDirective } from '../ng-test-tmpl.directive';
 
 @Component({
