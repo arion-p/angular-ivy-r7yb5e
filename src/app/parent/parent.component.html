@@ -1,0 +1,11 @@
+<div>
+  <div>Parent</div>
+  <ng-container
+    *ngTemplateOutlet="template || defaultTemplate; context: { item: item }"
+  >
+  </ng-container>
+  <div>/Parent</div>
+  <ng-template #defaultTemplate let-item="item">
+    (default){{ item }}(/default)
+  </ng-template>
+</div>

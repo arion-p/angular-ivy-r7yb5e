@@ -16,8 +16,8 @@ import { NgTestTmplDirective } from '../ng-test-tmpl.directive';
 export class ParentComponent implements OnInit {
   @Input() item: any;
 
-  @ContentChild(NgTestTmplDirective, { read: TemplateRef })
-  template: TemplateRef<any>;
+  @ContentChild(NgTestTmplDirective, { descendants: true, read: TemplateRef })
+  public template: TemplateRef<any>;
 
   constructor() {}
 
