@@ -1,6 +1,7 @@
 import {
   Component,
   ContentChild,
+  Directive,
   Input,
   OnInit,
   TemplateRef,
@@ -18,17 +19,21 @@ import { NgTestTmplDirective } from '../ng-test-tmpl.directive';
 export class ParentComponent implements OnInit {
   @Input() item: any;
 
-  private _template: TemplateRef<any>;
+  private _directive: NgTestTmplDirective;
 
+  @ContentChild(NgTestTmplDirective)
+  set directive(value: NgTestTmplDirective) {
+    console.log(value);
+    this._directive = value;
+  }
+  get directive(): NgTestTmplDirective {
+    return this._directive;
+  }
+
+  //@ContentChild(NgTestTmplDirective)
   @ContentChild(NgTestTmplDirective, { read: TemplateRef })
   //@ContentChild(TemplateRef, { read: TemplateRef })
-  set template(value: TemplateRef<any>) {
-    console.log(value?.createEmbeddedView?.name);
-    this._template = value;
-  }
-  get template(): TemplateRef<any> {
-    return this._template;
-  }
+  template: TemplateRef<any>;
 
   constructor() {}
 
